@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="./assets/images/favico.ico" />
+    <title>Christopher Gonzaga</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/1bb0db5e45.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div id="header">
+      <div class="container">
+        <nav>
+          <img src="./assets/images/logo.png" class="logo" alt="logo" />
+          <ul id="sidemenu">
+            <li><a href="#header">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <i class="fas fa-times" onclick="closemenu()"></i>
+          </ul>
+          <i class="fas fa-bars" onclick="openmenu()"></i>
+        </nav>
+        <div class="header-text">
+          <p>Front-end Developer</p>
+          <h1>Hi, I'm <span>Christopher</span> <br />Gonzaga</h1>
+        </div>
+      </div>
+    </div>
+    <div id="about">
+      <div class="container">
+        <div class="row">
+          <div class="about-col-1">
+            <img src="./assets/images/user.JPG" alt="profile pic" />
+          </div>
+          <div class="about-col-2">
+            <h1 class="sub-title">About Me</h1>
+            <p>
+              Velit ex Lorem qui laborum. Nostrud laboris deserunt tempor
+              officia elit pariatur. Voluptate nulla commodo Lorem consectetur
+              reprehenderit. Occaecat nulla enim non ut. Sit cupidatat aute
+              laborum tempor eu dolore eiusmod qui. Voluptate dolore Lorem elit
+              id in magna deserunt. Aute pariatur nostrud do reprehenderit ut
+              nostrud.
+            </p>
+            <div class="tab-titles">
+              <p class="tab-links active-link" onclick="opentab('skills')">
+                Skills
+              </p>
+              <p class="tab-links" onclick="opentab('experience')">
+                Experience
+              </p>
+              <p class="tab-links" onclick="opentab('education')">Education</p>
+            </div>
+            <div class="tab-contents active-tab" id="skills">
+              <ul>
+                <li><span>Web Development</span><br />Web app development</li>
+                <li>
+                  <span>App Development</span><br />Designing Web/App interfaces
+                </li>
+              </ul>
+            </div>
+            <div class="tab-contents" id="experience">
+              <ul>
+                <li>
+                  <span>Mar 2022 - May 2022</span><br />Intern at Questronix
+                  Corporation
+                </li>
+                <li>
+                  <span>Sep 2021 - Dec 2021</span><br />Intern at Questronix
+                  Corporation
+                </li>
+                <li>
+                  <span>Mar 2018 - Aug 2020</span><br />Summer Job Office Staff
+                  at Quirante Construction
+                </li>
+                <li>
+                  <span>Dec 2017 - Jan 2018</span><br />Intern at Quirante
+                  Construction
+                </li>
+              </ul>
+            </div>
+            <div class="tab-contents" id="education">
+              <ul>
+                <li>
+                  <span>2018 - 2022</span><br />University of Cebu - Main <br />
+                  Bachelor of Science in Information Technology
+                </li>
+                <li>
+                  <span>2016 - 2018</span><br />Naga National Highschool -
+                  Senior Highschool<br />Accountancy Business and Management
+                  (ABM Strand)
+                </li>
+                <li>
+                  <span>2012 - 2018</span><br />Naga National Highschool -
+                  Junior Highschool
+                </li>
+                <li>
+                  <span>2006 - 2012</span><br />Naga Central Elementary School
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="services">
+      <div class="container">
+        <h1 class="sub-title">My Services</h1>
+        <div class="services-list">
+          <div>
+            <i class="fas fa-code"></i>
+            <h2>Web Development</h2>
+            <p>
+              Consectetur tempor laborum aliquip laboris aliqua excepteur veniam
+              reprehenderit enim aute in reprehenderit est. Reprehenderit
+              pariatur velit aliquip cupidatat.
+            </p>
+            <a href="#">learn more</a>
+          </div>
+          <div>
+            <i class="fab fa-app-store"></i>
+            <h2>Mobile Development</h2>
+            <p>
+              Sit nulla exercitation est amet ullamco ipsum. Aliqua aliquip sint
+              ex officia ad labore est velit sit.
+            </p>
+            <a href="#">learn more </a>
+          </div>
+          <div>
+            <i class="fab fa-app-store"></i>
+            <h2>Mobile Development</h2>
+            <p>
+              Sit nulla exercitation est amet ullamco ipsum. Aliqua aliquip sint
+              ex officia ad labore est velit sit.
+            </p>
+            <a href="#">learn more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="portfolio">
+      <div class="container">
+        <h1 class="sub-title">My Work</h1>
+        <div class="work-list">
+          <div class="work">
+            <img src="./assets/images/work-1.png" alt="work-1" />
+            <div class="layer">
+              <h3>Work 1</h3>
+              <p>
+                Duis consectetur cillum Lorem reprehenderit. Est irure enim id
+                deserunt do anim exercitation aliquip dolor cillum eiusmod eu
+                voluptate dolor. Voluptate sint cupidatat veniam occaecat sint
+                qui commodo dolor id.
+              </p>
+              <a
+                href="https://github.com/gnzchrs/todo-list-react"
+                target="_blank"
+                ><i class="fas fa-external-link-alt"></i
+              ></a>
+            </div>
+          </div>
+          <div class="work">
+            <img src="./assets/images/work-2.png" alt="work-1" />
+            <div class="layer">
+              <h3>Work 1</h3>
+              <p>
+                Duis consectetur cillum Lorem reprehenderit. Est irure enim id
+                deserunt do anim exercitation aliquip dolor cillum eiusmod eu
+                voluptate dolor. Voluptate sint cupidatat veniam occaecat sint
+                qui commodo dolor id.
+              </p>
+              <a href="#"><i class="fas fa-external-link-alt"></i></a>
+            </div>
+          </div>
+          <div class="work">
+            <img src="./assets/images/work-3.png" alt="work-1" />
+            <div class="layer">
+              <h3>Work 1</h3>
+              <p>
+                Duis consectetur cillum Lorem reprehenderit. Est irure enim id
+                deserunt do anim exercitation aliquip dolor cillum eiusmod eu
+                voluptate dolor. Voluptate sint cupidatat veniam occaecat sint
+                qui commodo dolor id.
+              </p>
+              <a href="#"><i class="fas fa-external-link-alt"></i></a>
+            </div>
+          </div>
+        </div>
+        <a href="#" class="btn">See more</a>
+      </div>
+    </div>
+    <div id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="contact-left">
+            <h1 class="sub-title">Contact Me</h1>
+            <p><i class="fas fa-paper-plane"></i> contact@gmail.com</p>
+            <p><i class="fas fa-phone-square-alt"></i> 09363892744</p>
+            <div class="social-icons">
+              <a href="https://www.facebook.com/gnzchrs" target="_blank"
+                ><i class="fab fa-facebook"></i
+              ></a>
+              <a href="https://www.instagram.com/gnzchrs" target="_blank"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <a href="./assets/docs/resume.pdf" target="_blank" class="btn btn2"
+              >View Resume</a
+            >
+          </div>
+          <div class="contact-right">
+            <form>
+              <input
+                type="text"
+                autocapitalize="words"
+                name="Name"
+                placeholder="Your Name"
+                required
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                required
+              />
+              <textarea
+                name="Message"
+                rows="6"
+                placeholder="Your Message"
+              ></textarea>
+              <button type="submit" class="btn btn2" id="send">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>Copyright © Christopher @ 2022.</p>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
