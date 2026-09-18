@@ -4,8 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Christopher Gonzaga — Front-end Developer. Portfolio, services and contact."
+    />
     <link rel="icon" type="image/x-icon" href="./assets/images/favico.ico" />
-    <title>Christopher Gonzaga</title>
+    <title>Christopher Gonzaga — Front-end Developer</title>
     <link rel="stylesheet" href="style.css" />
     <script
       src="https://kit.fontawesome.com/1bb0db5e45.js"
@@ -13,238 +17,457 @@
     ></script>
   </head>
   <body>
-    <div id="header">
-      <div class="container">
-        <nav>
-          <img src="./assets/images/logo.png" class="logo" alt="logo" />
-          <ul id="sidemenu">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <!-- App navigation (sticky) -->
+    <nav class="nav" aria-label="Primary">
+      <div class="container nav-inner">
+        <a href="#header" class="logo" aria-label="Christopher Gonzaga — home">
+          <span class="logo-mark" aria-hidden="true">
+            <span class="logo-c">C</span><span class="logo-g">G</span>
+          </span>
+        </a>
+
+          <ul id="sidemenu" class="nav-menu">
+            <li class="nav-close">
+              <i
+                class="fas fa-times"
+                onclick="closemenu()"
+                aria-label="Close menu"
+                role="button"
+                tabindex="0"
+              ></i>
+            </li>
             <li><a href="#header">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
             <li><a href="#contact">Contact</a></li>
-            <i class="fas fa-times" onclick="closemenu()"></i>
           </ul>
-          <i class="fas fa-bars" onclick="openmenu()"></i>
-        </nav>
-        <div class="header-text">
-          <p>Front-end Developer</p>
-          <h1>Hi, I'm <span>Christopher</span> <br />Gonzaga</h1>
+
+          <div class="nav-actions">
+            <button
+              type="button"
+              id="theme-toggle"
+              class="theme-toggle"
+              aria-label="Toggle light and dark theme"
+              aria-pressed="false"
+            >
+              <i class="fas fa-moon" aria-hidden="true"></i>
+              <i class="fas fa-sun" aria-hidden="true"></i>
+            </button>
+            <button
+              class="nav-toggle"
+              id="nav-toggle"
+              aria-label="Open menu"
+              aria-expanded="false"
+              aria-controls="sidemenu"
+              onclick="openmenu()"
+            >
+              <i class="fas fa-bars" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </nav>
+
+    <!-- Click-away overlay for the off-canvas menu -->
+    <div class="nav-overlay" id="nav-overlay" onclick="closemenu()"></div>
+
+    <header id="header">
+      <!-- Hero -->
+      <div class="container hero">
+        <p class="eyebrow" id="hero-role" aria-label="Front-end Developer">
+          <span class="typed" aria-hidden="true"></span
+          ><span class="caret" aria-hidden="true"></span>
+        </p>
+        <h1>
+          Hi, I'm <span class="highlight">Christopher</span><br />Gonzaga
+        </h1>
+        <div class="hero-cta">
+          <a href="#portfolio" class="btn solid">View My Work</a>
+          <a href="#contact" class="btn">Contact Me</a>
         </div>
       </div>
-    </div>
-    <div id="about">
-      <div class="container">
-        <div class="row">
-          <div class="about-col-1">
-            <img src="./assets/images/user.JPG" alt="profile pic" />
-          </div>
-          <div class="about-col-2">
-            <h1 class="sub-title">About Me</h1>
-            <p>
-              Velit ex Lorem qui laborum. Nostrud laboris deserunt tempor
-              officia elit pariatur. Voluptate nulla commodo Lorem consectetur
-              reprehenderit. Occaecat nulla enim non ut. Sit cupidatat aute
-              laborum tempor eu dolore eiusmod qui. Voluptate dolore Lorem elit
-              id in magna deserunt. Aute pariatur nostrud do reprehenderit ut
-              nostrud.
-            </p>
-            <div class="tab-titles">
-              <p class="tab-links active-link" onclick="opentab('skills')">
-                Skills
+    </header>
+    <main id="main">
+      <!-- ===================== ABOUT ===================== -->
+      <section id="about" class="section">
+        <div class="container">
+          <div class="row">
+            <div class="about-col-1" data-reveal>
+              <img src="./assets/images/user.JPG" alt="Portrait of Christopher Gonzaga" />
+            </div>
+            <div class="about-col-2">
+              <div class="head">
+                <span class="eyebrow">Get to know me</span>
+                <h1 class="sub-title">About Me</h1>
+              </div>
+              <p class="about-bio" data-reveal>
+                I'm a front-end developer who enjoys turning ideas into clean,
+                responsive, and accessible interfaces. I hold a Bachelor of Science
+                in Information Technology from the University of Cebu and have
+                sharpened my skills through internships at Questronix Corporation
+                and hands-on side projects. I build with HTML, CSS, JavaScript and
+                React, always keeping performance, semantics, and the little details
+                in mind — because great software feels as good as it works.
               </p>
-              <p class="tab-links" onclick="opentab('experience')">
-                Experience
-              </p>
-              <p class="tab-links" onclick="opentab('education')">Education</p>
-            </div>
-            <div class="tab-contents active-tab" id="skills">
-              <ul>
-                <li><span>Web Development</span><br />Web app development</li>
-                <li>
-                  <span>App Development</span><br />Designing Web/App interfaces
-                </li>
-              </ul>
-            </div>
-            <div class="tab-contents" id="experience">
-              <ul>
-                <li>
-                  <span>Mar 2022 - May 2022</span><br />Intern at Questronix
-                  Corporation
-                </li>
-                <li>
-                  <span>Sep 2021 - Dec 2021</span><br />Intern at Questronix
-                  Corporation
-                </li>
-                <li>
-                  <span>Mar 2018 - Aug 2020</span><br />Summer Job Office Staff
-                  at Quirante Construction
-                </li>
-                <li>
-                  <span>Dec 2017 - Jan 2018</span><br />Intern at Quirante
-                  Construction
-                </li>
-              </ul>
-            </div>
-            <div class="tab-contents" id="education">
-              <ul>
-                <li>
-                  <span>2018 - 2022</span><br />University of Cebu - Main <br />
-                  Bachelor of Science in Information Technology
-                </li>
-                <li>
-                  <span>2016 - 2018</span><br />Naga National Highschool -
-                  Senior Highschool<br />Accountancy Business and Management
-                  (ABM Strand)
-                </li>
-                <li>
-                  <span>2012 - 2018</span><br />Naga National Highschool -
-                  Junior Highschool
-                </li>
-                <li>
-                  <span>2006 - 2012</span><br />Naga Central Elementary School
-                </li>
-              </ul>
+
+              <div class="tab-titles">
+                <p class="tab-links active-link" onclick="opentab('skills', this)">
+                  Skills
+                </p>
+                <p class="tab-links" onclick="opentab('experience', this)">
+                  Experience
+                </p>
+                <p class="tab-links" onclick="opentab('education', this)">Education</p>
+              </div>
+
+              <div class="tab-contents active-tab" id="skills">
+                <div class="skill-list">
+                  <div class="skill">
+                    <div class="skill-head">
+                      <span class="skill-name">Web Development</span>
+                      <span class="skill-pct">90%</span>
+                    </div>
+                    <div class="skill-track">
+                      <div class="skill-fill" data-level="90"></div>
+                    </div>
+                  </div>
+                  <div class="skill">
+                    <div class="skill-head">
+                      <span class="skill-name">App Development</span>
+                      <span class="skill-pct">72%</span>
+                    </div>
+                    <div class="skill-track">
+                      <div class="skill-fill" data-level="72"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab-contents" id="experience">
+                <ul>
+                  <li>
+                    <span class="bullet" aria-hidden="true"></span>
+                    <div class="tab-split">
+                      <span class="tab-label">Mar 2022 - May 2022</span>
+                      <p>Intern at Questronix Corporation</p>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="bullet" aria-hidden="true"></span>
+                    <div class="tab-split">
+                      <span class="tab-label">Sep 2021 - Dec 2021</span>
+                      <p>Intern at Questronix Corporation</p>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="bullet" aria-hidden="true"></span>
+                    <div class="tab-split">
+                      <span class="tab-label">Mar 2018 - Aug 2020</span>
+                      <p>Summer Job Office Staff at Quirante Construction</p>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="bullet" aria-hidden="true"></span>
+                    <div class="tab-split">
+                      <span class="tab-label">Dec 2017 - Jan 2018</span>
+                      <p>Intern at Quirante Construction</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="tab-contents" id="education">
+                <ul>
+                  <li>
+                    <span class="bullet" aria-hidden="true"></span>
+                    <div class="tab-split">
+                      <span class="tab-label">2018 - 2022</span>
+                      <p>University of Cebu — Main, Bachelor of Science in IT</p>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="bullet" aria-hidden="true"></span>
+                    <div class="tab-split">
+                      <span class="tab-label">2016 - 2018</span>
+                      <p>
+                        Naga National Highschool — Senior Highschool, Accountancy
+                        Business and Management (ABM Strand)
+                      </p>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="bullet" aria-hidden="true"></span>
+                    <div class="tab-split">
+                      <span class="tab-label">2012 - 2018</span>
+                      <p>Naga National Highschool — Junior Highschool</p>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="bullet" aria-hidden="true"></span>
+                    <div class="tab-split">
+                      <span class="tab-label">2006 - 2012</span>
+                      <p>Naga Central Elementary School</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-    <div id="services">
-      <div class="container">
-        <h1 class="sub-title">My Services</h1>
-        <div class="services-list">
-          <div>
-            <i class="fas fa-code"></i>
-            <h2>Web Development</h2>
-            <p>
-              Consectetur tempor laborum aliquip laboris aliqua excepteur veniam
-              reprehenderit enim aute in reprehenderit est. Reprehenderit
-              pariatur velit aliquip cupidatat.
-            </p>
-            <a href="#">learn more</a>
+      </section>
+<!-- ===================== SERVICES ===================== -->
+      <section id="services" class="section section-alt">
+        <div class="container">
+          <div class="head" data-reveal>
+            <span class="eyebrow">What I offer</span>
+            <h1 class="sub-title">My Services</h1>
           </div>
-          <div>
-            <i class="fab fa-app-store"></i>
-            <h2>Mobile Development</h2>
-            <p>
-              Sit nulla exercitation est amet ullamco ipsum. Aliqua aliquip sint
-              ex officia ad labore est velit sit.
-            </p>
-            <a href="#">learn more </a>
-          </div>
-          <div>
-            <i class="fab fa-app-store"></i>
-            <h2>Mobile Development</h2>
-            <p>
-              Sit nulla exercitation est amet ullamco ipsum. Aliqua aliquip sint
-              ex officia ad labore est velit sit.
-            </p>
-            <a href="#">learn more</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div id="portfolio">
-      <div class="container">
-        <h1 class="sub-title">My Work</h1>
-        <div class="work-list">
-          <div class="work">
-            <img src="./assets/images/work-1.png" alt="work-1" />
-            <div class="layer">
-              <h3>Work 1</h3>
+          <div class="services-list">
+            <div class="service-card" data-reveal>
+              <i class="fas fa-code service-icon" aria-hidden="true"></i>
+              <h2>Web Development</h2>
               <p>
-                Duis consectetur cillum Lorem reprehenderit. Est irure enim id
-                deserunt do anim exercitation aliquip dolor cillum eiusmod eu
-                voluptate dolor. Voluptate sint cupidatat veniam occaecat sint
-                qui commodo dolor id.
+                Modern, responsive websites and web apps built with HTML, CSS,
+                JavaScript and React — focused on clean code, fast load times, and a
+                mobile-first layout.
               </p>
-              <a
-                href="https://github.com/gnzchrs/todo-list-react"
-                target="_blank"
-                ><i class="fas fa-external-link-alt"></i
-              ></a>
+              <a href="#contact" class="learn-more">learn more</a>
             </div>
-          </div>
-          <div class="work">
-            <img src="./assets/images/work-2.png" alt="work-1" />
-            <div class="layer">
-              <h3>Work 1</h3>
+            <div class="service-card" data-reveal>
+              <i class="fab fa-app-store service-icon" aria-hidden="true"></i>
+              <h2>Mobile Development</h2>
               <p>
-                Duis consectetur cillum Lorem reprehenderit. Est irure enim id
-                deserunt do anim exercitation aliquip dolor cillum eiusmod eu
-                voluptate dolor. Voluptate sint cupidatat veniam occaecat sint
-                qui commodo dolor id.
+                Mobile-first interfaces and app screens built with usability in
+                mind — responsive layouts and prototypes that feel native across
+                phones, tablets, and desktops.
               </p>
-              <a href="#"><i class="fas fa-external-link-alt"></i></a>
+              <a href="#contact" class="learn-more">learn more</a>
             </div>
-          </div>
-          <div class="work">
-            <img src="./assets/images/work-3.png" alt="work-1" />
-            <div class="layer">
-              <h3>Work 1</h3>
+            <div class="service-card" data-reveal>
+              <i class="fas fa-palette service-icon" aria-hidden="true"></i>
+              <h2>UI / UX Design</h2>
               <p>
-                Duis consectetur cillum Lorem reprehenderit. Est irure enim id
-                deserunt do anim exercitation aliquip dolor cillum eiusmod eu
-                voluptate dolor. Voluptate sint cupidatat veniam occaecat sint
-                qui commodo dolor id.
+                End-to-end interface design — from user flows and wireframes to
+                polished, accessible components that are easy to hand off and build.
               </p>
-              <a href="#"><i class="fas fa-external-link-alt"></i></a>
+              <a href="#contact" class="learn-more">learn more</a>
             </div>
           </div>
         </div>
-        <a href="#" class="btn">See more</a>
-      </div>
-    </div>
-    <div id="contact">
-      <div class="container">
-        <div class="row">
-          <div class="contact-left">
-            <h1 class="sub-title">Contact Me</h1>
-            <p><i class="fas fa-paper-plane"></i> contact@gmail.com</p>
-            <p><i class="fas fa-phone-square-alt"></i> 09363892744</p>
-            <div class="social-icons">
-              <a href="https://www.facebook.com/gnzchrs" target="_blank"
-                ><i class="fab fa-facebook"></i
-              ></a>
-              <a href="https://www.instagram.com/gnzchrs" target="_blank"
-                ><i class="fab fa-instagram"></i
-              ></a>
-              <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </section>
+<!-- ===================== PORTFOLIO ===================== -->
+      <section id="portfolio" class="section">
+        <div class="container">
+          <div class="head" data-reveal>
+            <span class="eyebrow">Selected projects</span>
+            <h1 class="sub-title">My Work</h1>
+          </div>
+          <div class="filters" role="group" aria-label="Filter projects">
+            <button type="button" class="filter-btn is-active" data-filter="all">
+              All
+            </button>
+            <button type="button" class="filter-btn" data-filter="react">React</button>
+            <button type="button" class="filter-btn" data-filter="web">Web</button>
+            <button type="button" class="filter-btn" data-filter="ui">UI</button>
+          </div>
+          <div class="work-list">
+            <div class="work" data-reveal data-cat="react">
+              <img src="./assets/images/work-1.png" alt="Preview of a todo-list React app" />
+              <div class="layer">
+                <h3>Todo List App</h3>
+                <p>
+                  A responsive to-do app built with React — add, complete, and
+                  remove tasks with a clean interface and local persistence.
+                </p>
+                <a
+                  href="https://github.com/gnzchrs/todo-list-react"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="View Todo List App source"
+                >
+                  <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                </a>
+              </div>
             </div>
-            <a href="./assets/docs/resume.pdf" target="_blank" class="btn btn2"
-              >View Resume</a
+            <div class="work" data-reveal data-cat="web">
+              <img src="./assets/images/work-2.png" alt="Preview of project two" />
+              <div class="layer">
+                <h3>Dev Portfolio</h3>
+                <p>
+                  The site you're viewing — a dark, modern single-page portfolio
+                  with semantic HTML, CSS custom properties, and smooth scroll
+                  animations. No frameworks, just clean web fundamentals.
+                </p>
+                <a
+                  href="https://github.com/gnzchrs/Dev-Portfolio"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="View Dev Portfolio source"
+                >
+                  <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+            <div class="work" data-reveal data-cat="ui">
+              <img src="./assets/images/work-3.png" alt="Preview of project three" />
+              <div class="layer">
+                <h3>More on GitHub</h3>
+                <p>
+                  New projects are on the way — experiments with React, tooling, and
+                  creative front-end. Follow along on GitHub for the latest builds.
+                </p>
+                <a
+                  href="https://github.com/gnzchrs"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="View more on GitHub"
+                >
+                  <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="work-actions">
+            <a
+              href="https://github.com/gnzchrs"
+              target="_blank"
+              rel="noopener"
+              class="btn"
+              >See more on GitHub</a
             >
           </div>
-          <div class="contact-right">
-            <form>
-              <input
-                type="text"
-                autocapitalize="words"
-                name="Name"
-                placeholder="Your Name"
-                required
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Your Email"
-                required
-              />
-              <textarea
-                name="Message"
-                rows="6"
-                placeholder="Your Message"
-              ></textarea>
-              <button type="submit" class="btn btn2" id="send">Submit</button>
-            </form>
+        </div>
+      </section>
+
+      <!-- ===================== CONTACT ===================== -->
+      <section id="contact" class="section section-alt">
+        <div class="container">
+          <div class="head" data-reveal>
+            <span class="eyebrow">Get in touch</span>
+            <h1 class="sub-title">Contact Me</h1>
+          </div>
+          <div class="row">
+            <div class="contact-left" data-reveal>
+              <p>
+                <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                christophergonzaga63@gmail.com
+              </p>
+              <p>
+                <i class="fas fa-phone-square-alt" aria-hidden="true"></i>
+                09363892744
+              </p>
+              <div class="social-icons">
+                <a
+                  href="https://www.facebook.com/gnzchrs"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="Facebook"
+                  ><i class="fab fa-facebook" aria-hidden="true"></i
+                ></a>
+                <a
+                  href="https://www.instagram.com/gnzchrs"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="Instagram"
+                  ><i class="fab fa-instagram" aria-hidden="true"></i
+                ></a>
+              </div>
+              <button
+                type="button"
+                class="btn solid resume-btn"
+                id="resume-open"
+              >
+                View Resume
+              </button>
+            </div>
+            <div class="contact-right" data-reveal>
+              <form
+                class="form"
+                id="contact-form"
+                action="mailto:christophergonzaga63@gmail.com"
+                method="post"
+                enctype="text/plain"
+              >
+                <label for="contact-name" class="sr-only">Your Name</label>
+                <input
+                  id="contact-name"
+                  type="text"
+                  name="Name"
+                  placeholder="Your Name"
+                  autocapitalize="words"
+                  required
+                />
+                <label for="contact-email" class="sr-only">Your Email</label>
+                <input
+                  id="contact-email"
+                  type="email"
+                  name="email"
+                  placeholder="Your Email"
+                  required
+                />
+                <label for="contact-message" class="sr-only">Your Message</label>
+                <textarea
+                  id="contact-message"
+                  name="Message"
+                  rows="6"
+                  placeholder="Your Message"
+                ></textarea>
+                <div class="form-actions">
+                  <button type="submit" class="btn solid" id="send">Submit</button>
+                  <p class="form-status" id="form-status" role="status"></p>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
+      </section>
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer">
+      <div class="container">
+        <p>
+          Copyright © Christopher <span class="footer-accent" id="year"></span>.
+        </p>
       </div>
-      <div class="copyright">
-        <p>Copyright © Christopher @ 2022.</p>
+    </footer>
+
+    <!-- Resume modal -->
+    <div
+      class="modal"
+      id="resume-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="resume-modal-title"
+      aria-hidden="true"
+    >
+      <div class="modal-backdrop" data-modal-close></div>
+      <div class="modal-dialog">
+        <div class="modal-header">
+          <h2 id="resume-modal-title" class="modal-title">Resume</h2>
+          <button
+            type="button"
+            class="modal-close"
+            data-modal-close
+            aria-label="Close resume"
+          >
+            <i class="fas fa-times" aria-hidden="true"></i>
+          </button>
+        </div>
+        <iframe
+          class="resume-frame"
+          src="./assets/docs/resume.pdf"
+          title="Christopher Gonzaga resume"
+        ></iframe>
+        <div class="modal-footer">
+          <a href="./assets/docs/resume.pdf" download class="btn solid"
+            >Download PDF</a
+          >
+        </div>
       </div>
     </div>
+
     <script src="./script.js"></script>
   </body>
 </html>
