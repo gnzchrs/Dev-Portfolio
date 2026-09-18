@@ -455,15 +455,15 @@ img {
 /* 7. SERVICES */
 .services-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: var(--space-md);
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.25rem;
 }
 
 .service-card {
   background: linear-gradient(180deg, var(--surface), var(--surface-2));
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  padding: var(--space-md);
+  padding: clamp(1.1rem, 2vw, 1.6rem);
   position: relative;
   overflow: hidden;
   transition: transform var(--speed) var(--ease), border-color var(--speed),
@@ -493,17 +493,17 @@ img {
 .service-card .service-icon {
   display: grid;
   place-items: center;
-  width: 3.4rem;
-  height: 3.4rem;
-  border-radius: var(--radius-md);
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: var(--radius-sm);
   background: var(--accent-soft);
   color: var(--accent);
-  font-size: 1.5rem;
-  margin-bottom: var(--space-sm);
+  font-size: 1.15rem;
+  margin-bottom: 0.75rem;
 }
 
 .service-card h2 {
-  font-size: var(--fs-h);
+  font-size: 1.1rem;
   font-weight: 600;
   color: var(--text);
   margin-bottom: var(--space-xs);
@@ -511,8 +511,8 @@ img {
 
 .service-card p {
   color: var(--text-muted);
-  font-size: var(--fs-small);
-  line-height: 1.7;
+  font-size: 0.85rem;
+  line-height: 1.55;
   margin: 0;
 }
 
@@ -522,8 +522,8 @@ img {
   gap: 0.45rem;
   color: var(--accent);
   font-weight: 500;
-  font-size: var(--fs-small);
-  margin-top: var(--space-sm);
+  font-size: 0.85rem;
+  margin-top: 0.75rem;
   padding-bottom: 2px;
   border-bottom: 1px solid currentColor;
   transition: gap var(--speed);
@@ -678,11 +678,33 @@ img {
   width: 100%;
 }
 
-.form input,
-.form textarea {
-  width: 100%;
-  padding: 0.95rem 1.1rem;
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+}
+
+.field {
+  position: relative;
   margin-bottom: var(--space-sm);
+}
+
+.field-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  pointer-events: none;
+  z-index: 1;
+  transition: color var(--speed);
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 1.3rem 1rem 0.6rem 2.7rem;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
@@ -690,26 +712,98 @@ img {
   font-family: var(--font);
   font-size: var(--fs-body);
   -webkit-appearance: none;
-  transition: border-color var(--speed), box-shadow var(--speed);
+  transition: border-color var(--speed), box-shadow var(--speed), background var(--speed);
 }
 
-.form textarea {
+.field textarea {
   resize: vertical;
-  min-height: 150px;
+  min-height: 140px;
+  padding-top: 1.5rem;
 }
 
-.form input::placeholder,
-.form textarea::placeholder {
-  color: var(--text-dim);
+.field input:hover,
+.field textarea:hover {
+  border-color: var(--border-strong);
 }
 
-.form input:focus,
-.form textarea:focus {
+.field input:focus,
+.field textarea:focus {
   outline: none;
   border-color: var(--accent);
   box-shadow: 0 0 0 3px var(--accent-soft);
 }
 
+.field:focus-within .field-icon {
+  color: var(--accent);
+}
+
+/* ------------------------ labels ------------------------ */
+.field label {
+  position: absolute;
+  left: 2.7rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-dim);
+  font-size: var(--fs-body);
+  pointer-events: none;
+  white-space: nowrap;
+  transition: top var(--speed), font-size var(--speed), color var(--speed),
+    transform var(--speed);
+}
+
+.field .req {
+  color: var(--accent);
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: transparent;
+}
+
+/* float meta shared by input + textarea labels */
+.field input:focus ~ label,
+.field input:not(:placeholder-shown) ~ label,
+.field-textarea textarea:focus ~ label,
+.field-textarea textarea:not(:placeholder-shown) ~ label {
+  font-size: var(--fs-meta);
+  font-weight: 500;
+}
+
+/* position: inputs */
+.field input:focus ~ label,
+.field input:not(:placeholder-shown) ~ label {
+  top: 0.5rem;
+  transform: translateY(0);
+}
+
+/* position: textarea variant */
+.field-textarea .field-icon {
+  top: 1.25rem;
+  transform: none;
+}
+
+.field-textarea label {
+  top: 1.25rem;
+  transform: none;
+}
+
+.field-textarea textarea:focus ~ label,
+.field-textarea textarea:not(:placeholder-shown) ~ label {
+  top: 0.45rem;
+}
+
+/* color: filled (not focused) → muted; focused → accent */
+.field input:not(:placeholder-shown) ~ label,
+.field-textarea textarea:not(:placeholder-shown) ~ label {
+  color: var(--text-muted);
+}
+
+.field input:focus ~ label,
+.field-textarea textarea:focus ~ label {
+  color: var(--accent);
+}
+
+/* ------------------------ submit / status ------------------------ */
 .form-actions {
   text-align: right;
 }
@@ -1203,6 +1297,10 @@ html[data-theme="light"] .theme-toggle .fa-sun {
 
   .services-list,
   .work-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .field-row {
     grid-template-columns: minmax(0, 1fr);
   }
 
