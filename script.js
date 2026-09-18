@@ -65,16 +65,78 @@ document.addEventListener("keydown", function (e) {
   if (!el) return;
   const typed = el.querySelector(".typed");
   if (!typed) return;
-  const text = "Front-end Developer";
-  let i = 0;
+
+  const roles = [
+    { prefix: "Full-Stack ", keyword: "Developer" },
+    { prefix: "IT ", keyword: "Technician" },
+    { prefix: "Network ", keyword: "Administrator" },
+  ];
+  const TYPE_MS = 55;
+  const DELETE_MS = 35;
+  const HOLD_MS = 1600;
+  const PAUSE_MS = 350;
+
+  const reduced =
+    window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const prefixEl = typed.querySelector(".tp");
+  const keywordEl = typed.querySelector(".tk");
+
+  const render = (count, role) => {
+    const full = role.prefix + role.keyword;
+    const shown = full.substring(0, count);
+
+    let p = "";
+    let k = "";
+    if (count <= role.prefix.length) {
+      p = shown;
+    } else {
+      p = role.prefix;
+      k = shown.substring(role.prefix.length);
+    }
+
+    if (prefixEl) prefixEl.textContent = p;
+    if (keywordEl) keywordEl.textContent = k;
+  };
+
+  // Reduced motion: show the first role statically, no animation.
+  if (reduced) {
+    const first = roles[0];
+    render(first.prefix.length + first.keyword.length, first);
+    return;
+  }
+
+  let roleIndex = 0;
+  let charIndex = 0;
+  let deleting = false;
+
   const tick = () => {
-    i++;
-    typed.textContent = text.substring(0, i);
-    if (i < text.length) {
-      setTimeout(tick, 55);
+    const current = roles[roleIndex];
+    const full = current.prefix + current.keyword;
+
+    if (!deleting) {
+      charIndex++;
+      render(charIndex, current);
+      if (charIndex === full.length) {
+        deleting = true;
+        setTimeout(tick, HOLD_MS);
+      } else {
+        setTimeout(tick, TYPE_MS);
+      }
+    } else {
+      charIndex--;
+      render(charIndex, current);
+      if (charIndex === 0) {
+        deleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+        setTimeout(tick, PAUSE_MS);
+      } else {
+        setTimeout(tick, DELETE_MS);
+      }
     }
   };
-  setTimeout(tick, 450);
+
+  setTimeout(tick, 400);
 })();
 
 /* ---------------- Scroll reveal ---------------- */

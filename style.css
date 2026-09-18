@@ -882,6 +882,10 @@ img {
   color: var(--text);
 }
 
+.typed .tk {
+  color: var(--accent);
+}
+
 .caret {
   display: inline-block;
   width: 2px;
